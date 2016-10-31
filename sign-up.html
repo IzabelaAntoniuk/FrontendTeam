@@ -1,4 +1,32 @@
-<div>
-Imię: <input type="text">
-Nazwisko <input type />
-</div>
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+
+<form ng-app="" name="signForm">
+<fieldset>
+  <label for="emailAddress">Email:</label>
+  <input type="email" name="emailAddress" ng-model="text" placeholder="Wpisz swoj adres email" required>
+  <span ng-show="signForm.emailAddress.$error.email">Nieprawidłowy adres email</span><br>
+
+  <label for="newPassword">Hasło:</label>
+  <input type="password" name="newPassword" ng.model="password.new" placeholder="Wpisz swoje hasło" required>
+  <span ng-show="signForm.newPassword.$error.required">Pole wymagane!</span><br>
+
+  <label for="verifyPassword">Poworz hasło:</label>
+  <input type="password" name="verifyPassword" ng.model="password.verify" placeholder="Wpisz hasło ponownie" required>
+  <span ng-show="signForm.verifyPassword.$error.required">Pole wymagane!</span><br>
+  <div ng-show="form.newPassword.$error.verifyPassword">
+        Hasła nie są takie same!
+  </div>
+</fieldset>
+<button>Dalej</button>
+</form>
+
+<script>
+
+</script>
+
+
+</body>
+</html>
