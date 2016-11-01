@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html ng-app="sign_in" ng-controller="signIn" >
+
+
+<head>
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script> -->
+    <base href="/">
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>bookweb/logowanie</title>
+
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css" />
+		<link rel="stylesheet" href="styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="https://code.angularjs.org/1.5.8/angular-messages.min.js"></script>
+
+</head>
+
+<body data-ng-controller="signIn" style="text-align:center;">
+    <div ui-view ng-init="myVar = 'bookweb.jpg'">
+			  <form name="signInForm" method="POST" novalidate action="//api.test/auth" data-ng-hide="correctLogIn" data-ng-submit="submitData($event)">
+					<!-- <fieldset > -->
+
+<!-- <img ng-src="C:\Users\us\Documents\GitHub\FrontendTeam\sign_in\bookweb.jpg" alt="www.bookweb.pl"/> -->
+          <!-- <img ng-src="bookweb.png" alt="bookweb.pl"> -->
+          <h1 style="font-family:verdana;font-size:300%;text-align:center;"><strong>Logowanie</strong></h1>
+						<div >
+							<!-- <label for="email">Login lub adres e-mail: </label> -->
+							<br/><input type="email" required name="email" ng-model="user.email" placeholder="Login lub adres email" style="height:30px;width:200px;text-align:center;"><br/>
+              <div style="height:10px;"></div>
+              <div class="error" ng-messages="signInForm.email.$error" style="color:maroon" role="alert" md-auto-hide="false" ng-if="signInForm.email.$touched">
+								<!-- <div ng-message="signInForm.email.$error.pattern">Niepoprawne dane</div> -->
+								<!-- <div ng-message="required">Pole wymagane</div> -->
+							</div>
+						</div>
+						<div >
+		          <!-- <label for="password">Hasło: </label> -->
+		          <!-- <input type="password" required name="password" data-ng-minlength="6" data-ng-pattern="passPattern" data-ng-model="user.pass"> -->
+              <input type="password" required name="password" data-ng-minlength="6" placeholder="Hasło" data-ng-pattern="passPattern" data-ng-model="user.pass" style="height:30px;width:200px;text-align:center;">
+              <div style="height:10px;"></div>
+		          <div class="error" ng-messages="signInForm.password.$error" >
+		            <!-- <div ng-message="signInForm.password.$error">Hasło nieprawidłowe</div> -->
+		          </div>
+		        </div>
+						<input type="submit" value="Zaloguj się" data-ng-disabled="signInForm.$invalid">
+						<input type="submit" value="Zaloguj się przez Facebook" data-ng-disabled="signInForm.$invalid">
+						<p><a href="http://facebook.com" title="http://facebook.com"><small>Zaloguj się przez Facebook</small></a></p>
+<hr />
+            <div ng-controller="signIn">
+							<label for="registration"> <small>Nie masz konta ?</small> </label>
+							<input type="submit" value="Zarejestruj się" title="Rejestracja"/>
+							<!-- <p><a href="http://facebook.com">Nie pamiętam hasła</a></p> -->
+							<p><a href="file:///C:/Users/us/Documents/GitHub/FrontendTeam/sign_in/remind_password.html" title="Przypomnij hasło"><small>Nie pamiętam hasła</small></a></p>
+						</div>
+		<!-- </fieldset> -->
+		</form>
+		<!-- <p class="bg-success login-info" data-ng-show="correctLogIn">Zalogowano</p>
+	  <p class="bg-warning login-info" data-ng-show="incorrectLogIn">Niepoprawny login lub hasło</p>
+	  <p class="bg-danger login-info" data-ng-show="serverProblem">Błąd usługi</p>-->
+	</div>
+    <script src="/sign_in/signIn.js"></script>
+</body>
+
+</html>

@@ -1,30 +1,54 @@
 <!DOCTYPE html>
 <html>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  <!-- <link href="" rel="stylesheet"> -->
 <body>
 
-<form ng-app="" name="signForm">
+<h2><strong>Rejestracja</strong></h2>
+<!-- <div ng-controller="Ctrl"> -->
+
+<form ng-app="myApp"  name="signForm">
 <fieldset>
+
   <label for="emailAddress">Email:</label>
-  <input type="email" name="emailAddress" ng-model="text" placeholder="Wpisz swoj adres email" required>
-  <span ng-show="signForm.emailAddress.$error.email">Nieprawidłowy adres email</span><br>
+  <input type="email" name="emailAddress" ng-model="email" placeholder="Wpisz swoj adres email" required><br />
 
   <label for="newPassword">Hasło:</label>
-  <input type="password" name="newPassword" ng.model="password.new" placeholder="Wpisz swoje hasło" required>
-  <span ng-show="signForm.newPassword.$error.required">Pole wymagane!</span><br>
+  <input type="password" name="newPassword" id="pass1" ng-model="newPassword" required><br />
 
-  <label for="verifyPassword">Poworz hasło:</label>
-  <input type="password" name="verifyPassword" ng.model="password.verify" placeholder="Wpisz hasło ponownie" required>
-  <span ng-show="signForm.verifyPassword.$error.required">Pole wymagane!</span><br>
-  <div ng-show="form.newPassword.$error.verifyPassword">
-        Hasła nie są takie same!
-  </div>
+  <label for="verifyPassword">Powtorz hasło:</label>
+  <input type="password" name="verifyPassword" id="pass2" ng-model="verifyPassword" required onkeyup="checkPass(); return false;">
+  <output ng-bind="verifyPassword">
+
+  </output>
+  <span id="verifyMessage" class="verifyMessage"></span><br />
+
+  <p>
+    <input type="submit" ng-disabled="signForm.$invalid">
+  </p>
+
+  <!-- ng-disabled="signForm.emailAddress.$pristine && signForm.emailAddress.$invalid || signForm.newPassword.$invalid || signForm.verifyPassword.$invalid"> -->
+
 </fieldset>
-<button>Dalej</button>
 </form>
+<!-- </div> -->
+
 
 <script>
 
+// angular.module('myApp', [])
+//   .controller('Ctrl', ['$scope', function($scope) {
+//     //$scope.userType = 'guest';
+//   }]);
+
+function checkPass()
+{
+    var pass1 = document.getElementById('pass1');
+    var pass2 = document.getElementById('pass2');
+    var message = document.getElementById('verifyMessage');
+
+    if(pass1.value != pass2.value) message.innerHTML="Wpisane hasła nie są takie same!"
+}
 </script>
 
 
