@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>bookWEB</title>
+    <title>bookweb</title>
 
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css" />
@@ -18,16 +18,17 @@
 </head>
 
 <body data-ng-controller="signIn">
-    <div ui-view>
+    <div ui-view >
 			<h2><strong>Logowanie</strong></h2>
 			  <form name="signInForm" method="POST" novalidate action="//api.test/auth" data-ng-hide="correctLogIn" data-ng-submit="submitData($event)">
 					<fieldset >
 						<div>
 							<label for="email">Login lub adres e-mail: </label>
 							<input type="email" required name="email" ng-model="user.email" placeholder="Login lub adres email" >
-							<div class="error" ng-show="signInForm.email.$invalid && signInForm.email.$dirty">
-								<span ng-show="signInForm.email.$error.pattern">Niepoprawne dane</span>
-								<span ng-show="signInForm.email.$error.required">Pole wymagane</span>
+							<div class="errors" ng-message="signInForm.email.$error" style="color:maroon" role="alert" md-auto-hide="false" ng-if="signInForm.email.$touched">
+
+								<div ng-message="signInForm.email.$error.pattern">Niepoprawne dane</div>
+								<div ng-message="required">Pole wymagane</div>
 							</div>
 						</div>
 						<div >
