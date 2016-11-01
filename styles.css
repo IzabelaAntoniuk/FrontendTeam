@@ -1,15 +1,14 @@
 body {
-<<<<<<< HEAD
   background-color: rgb(250, 240, 231);
   padding: 0;
   margin: 0;
 }
 
 header {
-    background-color: rgb(69, 39, 18);
+    background-color: rgb(162, 120, 91);
     height: 15%;
-    margin-left: 5%;
-    margin-right: 5%;
+  /*  margin-left: 5%;
+    margin-right: 5%;*/
     margin-bottom: 2px;
     color: white;
 }
@@ -23,16 +22,16 @@ header {
 }
 
 main {
-  background-color: rgb(34, 21, 1);
-  margin-left: 5%;
-  margin-right: 5%;
-  height: 300px;
+  background-color: rgb(59, 52, 40);
+/*  margin-left: 5%;
+  margin-right: 5%;*/
+  height: 400px;
 }
 
 footer {
-  background-color: rgb(69, 39, 18);
-  margin-left: 5%;
-  margin-right: 5%;
+  background-color: rgb(162, 120, 91);
+/*  margin-left: 5%;
+  margin-right: 5%;*/
   margin-top: 2px;
   padding: 10px;
   color: white;
@@ -104,7 +103,7 @@ ul:first-child{
   backface-visibility: hidden;
   -moz-osx-font-smoothing: grayscale;
   position: relative;
-  background: #a8765d;
+  background:  rgb(59, 52, 40);
   -webkit-transition-property: color;
   transition-property: color;
   -webkit-transition-duration: 0.3s;
@@ -137,14 +136,3 @@ ul:first-child{
   -webkit-transform: scaleY(0);
   transform: scaleY(0);
 }
-=======
-  background-color: rgb(201, 149, 116);
-}
-
-.guzik {
-  background-color: red;
-  height: 100px;
-  width: 100px;
-}
-/* hehhe kjhkjh */
->>>>>>> origin/master
