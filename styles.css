@@ -60,7 +60,7 @@ main {
   padding-bottom: 30px;
 /*  margin-left: 5%;
   margin-right: 5%;*/
-  height: auto;
+  height: 420px;
 }
 
 footer {
@@ -79,7 +79,7 @@ footer {
   border: 1px solid black;
   padding: 5px;
   background-color: rgb(250, 240, 231);
-
+text-align: center;
 }
 
 img {

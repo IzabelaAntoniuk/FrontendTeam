@@ -9,30 +9,49 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>bookweb/logowanie</title>
+    <title>Logowanie</title>
 
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="Users/Izabela/FrontendTeam/FrontendTeam/bootstrap.css">
+    <link rel="stylesheet" href="Users/Izabela/FrontendTeam/FrontendTeam/styles.css">
+
+  <!--  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />-->
     <link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css" />
-		<link rel="stylesheet" href="styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
     <script src="https://code.angularjs.org/1.5.8/angular-messages.min.js"></script>
 
 </head>
 
-<body data-ng-controller="signIn" style="text-align:center;">
+<body data-ng-controller="signIn">
+
+  <header>
+  <!--  <img src="logo.png" height="193" width="250"/>-->
+  <h1 class="headerText">Najlepsza strona w internetach.</h1>
+
+  <nav>
+    <ul>
+      <li><a href="Users/Izabela/FrontendTeam/FrontendTeam/index.html" class="animation">Strona Głowna</a></li>
+      <li><a href="Users/Izabela/FrontendTeam/FrontendTeam//sign_in/sign-in-page.html" class="animation">Logowanie</a></li>
+      <li><a href="Users/Izabela/FrontendTeam/FrontendTeam/sign-up.html" class="animation">Rejestracja</a></li>
+    </ul>
+  </nav>
+  </header>
+
+  <main>
+
     <div ui-view ng-init="myVar = 'bookweb.jpg'">
+      <div class="container">
+
+
 			  <form name="signInForm" method="POST" novalidate action="//api.test/auth" data-ng-hide="correctLogIn" data-ng-submit="submitData($event)">
 					<!-- <fieldset > -->
 
 <!-- <img ng-src="C:\Users\us\Documents\GitHub\FrontendTeam\sign_in\bookweb.jpg" alt="www.bookweb.pl"/> -->
           <!-- <img ng-src="bookweb.png" alt="bookweb.pl"> -->
-          <h1 style="font-family:verdana;font-size:300%;text-align:center;"><strong>Logowanie</strong></h1>
+          <h2><strong>Logowanie</strong></h2>
 						<div >
 							<!-- <label for="email">Login lub adres e-mail: </label> -->
-							<br/><input type="email" required name="email" ng-model="user.email" placeholder="Login lub adres email" style="height:30px;width:200px;text-align:center;"><br/>
-              <div style="height:10px;"></div>
-              <div class="error" ng-messages="signInForm.email.$error" style="color:maroon" role="alert" md-auto-hide="false" ng-if="signInForm.email.$touched">
+							<br/><input type="email" class="in" required name="email" ng-model="user.email" placeholder="Login lub adres email"><br/>
+              <div class="error" ng-messages="signInForm.email.$error" role="alert" md-auto-hide="false" ng-if="signInForm.email.$touched">
 								<!-- <div ng-message="signInForm.email.$error.pattern">Niepoprawne dane</div> -->
 								<!-- <div ng-message="required">Pole wymagane</div> -->
 							</div>
@@ -40,21 +59,21 @@
 						<div >
 		          <!-- <label for="password">Hasło: </label> -->
 		          <!-- <input type="password" required name="password" data-ng-minlength="6" data-ng-pattern="passPattern" data-ng-model="user.pass"> -->
-              <input type="password" required name="password" data-ng-minlength="6" placeholder="Hasło" data-ng-pattern="passPattern" data-ng-model="user.pass" style="height:30px;width:200px;text-align:center;">
-              <div style="height:10px;"></div>
+              <input type="password" class="in" required name="password" data-ng-minlength="6" placeholder="Hasło" data-ng-pattern="passPattern" data-ng-model="user.pass">
 		          <div class="error" ng-messages="signInForm.password.$error" >
 		            <!-- <div ng-message="signInForm.password.$error">Hasło nieprawidłowe</div> -->
 		          </div>
 		        </div>
-						<input type="submit" value="Zaloguj się" data-ng-disabled="signInForm.$invalid">
-						<input type="submit" value="Zaloguj się przez Facebook" data-ng-disabled="signInForm.$invalid">
-						<p><a href="http://facebook.com" title="http://facebook.com"><small>Zaloguj się przez Facebook</small></a></p>
+						<input type="submit" class="btn-default" style="text-align: center; margin-top: 10px;" value="Zaloguj się" data-ng-disabled="signInForm.$invalid">
+						<input type="submit" class="btn-default" style="text-align: center; margin-top: 10px;" value="Zaloguj się przez Facebook" data-ng-disabled="signInForm.$invalid">
+						<p><a href="http://facebook.com" title="http://facebook.com"><small><div style="margin: 10px;">Zaloguj się przez Facebook</div></small></a></p>
 <hr />
             <div ng-controller="signIn">
-							<label for="registration"> <small>Nie masz konta ?</small> </label>
-							<input type="submit" value="Zarejestruj się" title="Rejestracja"/>
+							<label for="registration"> <small><div style="margin: 10px;">Nie masz konta?</div></small></label>
+							<input type="submit" class="btn-default" style="text-align: center; margin-top: 10px;" value="Zarejestruj się" title="Rejestracja"/>
 							<!-- <p><a href="http://facebook.com">Nie pamiętam hasła</a></p> -->
-							<p><a href="file:///C:/Users/us/Documents/GitHub/FrontendTeam/sign_in/remind_password.html" title="Przypomnij hasło"><small>Nie pamiętam hasła</small></a></p>
+							<p><a href="Users/Izabela/FrontendTeam/FrontendTeam//sign_in/remind_password.html" title="Przypomnij hasło"><small>Nie pamiętam hasła</small></a></p>
+              <!--<p><a href="file:///C:/Users/us/Documents/GitHub/FrontendTeam/sign_in/remind_password.html" title="Przypomnij hasło"><small>Nie pamiętam hasła</small></a></p>-->
 						</div>
 		<!-- </fieldset> -->
 		</form>
@@ -62,7 +81,15 @@
 	  <p class="bg-warning login-info" data-ng-show="incorrectLogIn">Niepoprawny login lub hasło</p>
 	  <p class="bg-danger login-info" data-ng-show="serverProblem">Błąd usługi</p>-->
 	</div>
-    <script src="/sign_in/signIn.js"></script>
+  </div>
+
+  <script src="/sign_in/signIn.js"></script>
+
+</main>
 </body>
+
+<footer>
+  Stopka
+</footer>
 
 </html>
