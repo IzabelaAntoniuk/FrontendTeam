@@ -1,30 +1,88 @@
 <!DOCTYPE html>
 <html>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-<body>
+<body background="http://youtubowo.pl/upload/8b9aca16cbbfd076a1cd3ec6ea7d0566.jpg">
 
-<form ng-app="" name="signForm">
+<h2><strong>Rejestracja</strong></h2>
+<div ng-controller="Ctrl">
+
+<form ng-app="myApp"  name="signForm" nonvalidate>
 <fieldset>
+
   <label for="emailAddress">Email:</label>
-  <input type="email" name="emailAddress" ng-model="text" placeholder="Wpisz swoj adres email" required>
-  <span ng-show="signForm.emailAddress.$error.email">Nieprawidłowy adres email</span><br>
+  <input type="email" name="emailAddress" ng-model="email" placeholder="Wpisz swoj adres email" required>
+  <span ng-show="signForm.emailAddress.$dirty && signForm.emailAddress.$invalid">
+    <span ng-show="signForm.emailAddress.$error.required">*Pole wymagane</span>
+    <span ng-show="signForm.emailAddress.$error.email">Nieprawidłowy adres email</span>
+  </span>
+  <br>
 
   <label for="newPassword">Hasło:</label>
-  <input type="password" name="newPassword" ng.model="password.new" placeholder="Wpisz swoje hasło" required>
-  <span ng-show="signForm.newPassword.$error.required">Pole wymagane!</span><br>
-
-  <label for="verifyPassword">Poworz hasło:</label>
-  <input type="password" name="verifyPassword" ng.model="password.verify" placeholder="Wpisz hasło ponownie" required>
-  <span ng-show="signForm.verifyPassword.$error.required">Pole wymagane!</span><br>
-  <div ng-show="form.newPassword.$error.verifyPassword">
-        Hasła nie są takie same!
+  <input type="password" name="newPassword" ng-model="newPassword" required>
+  <!-- <span ng-show="signForm.newPassword.$error.required">*Pole wymagane</span><br> -->
+  <div class="clearfix">
+    <div ng-messages="signForm.newPassword.$error" ng-if="signForm.newPassword.$pristine" ng-messages-multiple="ng-messages-multiple" class="error-messages slide-right">
+      <div ng-message="required" class="message slide-left">*Pole wymagane</div>
+    </div>
   </div>
+
+  <label for="verifyPassword">Powtorz hasło:</label>
+  <input type="password" name="verifyPassword" ng-model="verifyPassword" required>
+  <!-- <span ng-show="signForm.verifyPassword.$error.required">*Pole wymagane</span><br> -->
+  <div class="clearfix">
+    <div ng-messages="signForm.verifyPassword.$error" ng-if="signForm.verifyPassword.$pristine" ng-messages-multiple="ng-messages-multiple" class="error-messages slide-right">
+      <div ng-message="required" class="message slide-left">*Pole wymagane</div>
+      <!-- <div ng-message="passwordMatch" class="message slide-left">Wpisane hasła nie są takie same</div> -->
+    </div>
+  </div>
+  <div ng-show="signForm.verifyPassword.$error.passwordVerify"> Fields are not equal!</div>
+
+  <!-- <div ng-show="signForm.newPassword.$error.verifyPassword">
+        Wpisane hasła nie są takie same
+  </div><br /> -->
+
+  <p>
+    <input type="submit"
+    ng-disabled="signForm.emailAddress.$pristine && signForm.emailAddress.$invalid || signForm.newPassword.$invalid || signForm.verifyPassword.$invalid">
+  </p>
 </fieldset>
-<button>Dalej</button>
 </form>
+</div>
 
 <script>
+var app = angular.module('myApp', []);
 
+app.directive("passwordVerify", function() {
+   return {
+      require: "ngModel",
+      scope: {
+        passwordVerify: '='
+      },
+      link: function(scope, element, attrs, ctrl) {
+        scope.$watch(function() {
+            var combined;
+
+            if (scope.passwordVerify || ctrl.$viewValue) {
+               combined = scope.passwordVerify + '_' + ctrl.$viewValue;
+            }
+            return combined;
+        }, function(value) {
+            if (value) {
+                ctrl.$parsers.unshift(function(viewValue) {
+                    var origin = scope.passwordVerify;
+                    if (origin !== viewValue) {
+                        ctrl.$setValidity("passwordVerify", false);
+                        return undefined;
+                    } else {
+                        ctrl.$setValidity("passwordVerify", true);
+                        return viewValue;
+                    }
+                });
+            }
+        });
+     }
+   };
+});
 </script>
 
 
