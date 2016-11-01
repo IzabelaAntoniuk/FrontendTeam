@@ -1,33 +1,55 @@
 <!DOCTYPE html>
 <html>
+<head>
+  <title>Rejestracja</title>
+  <link rel="stylesheet" href="bootstrap.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
   <!-- <link href="" rel="stylesheet"> -->
 <body>
 
-<h2><strong>Rejestracja</strong></h2>
-<!-- <div ng-controller="Ctrl"> -->
+  <header>
+  <!--  <img src="logo.png" height="193" width="250"/>-->
+  <h1 class="headerText">Najlepsza strona w internetach.</h1>
+
+  <nav>
+    <ul>
+      <li><a href="#home" class="animation">Strona Głowna</a></li>
+      <li><a href="sign_in/sign-in-page.html" class="animation">Logowanie</a></li>
+      <li><a href="sign-up.html" class="animation">Rejestracja</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+
+<div class="container">
+
+  <h2><strong>Rejestracja</strong></h2>
+  <!-- <div ng-controller="Ctrl"> -->
 
 <form ng-app=""  method="post" name="signForm" action="www.google.pl" nonvalidate data-ng-submit="submitData($event)">
 <fieldset>
   <label for="emailAddress">Email:</label>
-  <input type="email" name="emailAddress" ng-model="email" id="email" placeholder="Wpisz swoj adres email" required><br />
+  <input type="email" class="in" name="emailAddress" ng-model="email" id="email" placeholder="Wpisz swoj adres email" required><br />
 
   <label for="newPassword">Hasło:</label>
-  <input type="password" name="newPassword" id="pass1" ng-minlength="6" ng-model="newPassword" required><br />
+  <input type="password" class="in" name="newPassword" id="pass1" ng-minlength="6" ng-model="newPassword" required><br />
 
   <label for="verifyPassword">Powtorz hasło:</label>
-  <input type="password" name="verifyPassword" id="pass2" ng-minlength="6" ng-model="verifyPassword" required onkeyup="checkPass(); return false;">
+  <input type="password" class="in" name="verifyPassword" id="pass2" ng-minlength="6" ng-model="verifyPassword" required onkeyup="checkPass(); return false;">
 
   <br /><span style="color:maroon; font-style:italic" id="verifyMessage" class="verifyMessage"></span><br />
 
   <p>
-    <input type="submit"
+    <input type="submit" class="btn-default" style="float: right; margin-top: 10px;"
     ng-disabled="signForm.emailAddress.$pristine && signForm.emailAddress.$invalid || signForm.newPassword.$invalid || signForm.verifyPassword.$invalid">
   </p>
 </fieldset>
 </form>
-<!-- </div> -->
 
+<!-- </div> -->
 
 <script>
 function checkPass()
@@ -36,11 +58,17 @@ function checkPass()
     var pass2 = document.getElementById('pass2');
     var message = document.getElementById('verifyMessage');
 
-    if(pass1.value != pass2.value) message.innerHTML="Wpisane hasła nie są takie same!"
+    if(pass1.value != pass2.value) message.innerHTML="<span class='warning'>Wpisane hasła nie są takie same!</span>"
     else message.innerHTML="";
 }
 </script>
 
+</div>
+</main>
+
+<footer>
+  Stopka
+</footer>
 
 </body>
 </html>
