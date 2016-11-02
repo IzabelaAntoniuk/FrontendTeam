@@ -44,43 +44,29 @@
   <span ng-messages="signForm.newPassword.$error" ng-if="signForm.newPassword.$touched && signForm.newPassword.$dirty && signForm.newPassword.$invalid" class="error-messages slide-right">
   <span ng-message="required" class="message slide-left">*Pole wymagane</span>
   <span ng-message="minlength" class="message slide-left">*Hasło za krotkie. Min 6 znakow</span>
-</span><br />
+  </span><br />
 
-<!-- onkeyup="checkPass(); return false; -->
   <label for="verifyPassword">Powtorz hasło:</label>
   <input type="password" class="in" name="verifyPassword" id="pass2" ng-minlength="6"
-  use-form-error="passwordconfirm"
-  use-error-expression="signUpCtrl.password && signUpCtrl.confirmPassword && signUpCtrl.password!=signUpCtrl.confirmPassword" ng-model="verifyPassword" required >
+        use-form-error="passwordconfirm"
+        use-error-expression="signUpCtrl.password && signUpCtrl.confirmPassword && signUpCtrl.password!=signUpCtrl.confirmPassword" ng-model="verifyPassword" required >
   <span ng-messages="signForm.verifyPassword.$error" ng-if="signForm.verifyPassword.$touched && signForm.verifyPassword.$dirty && signForm.verifyPassword.$invalid" class="error-messages slide-right">
   <span ng-message="required" class="message slide-left">*Pole wymagane</span>
   <span ng-message="minlength" class="message slide-left">*Hasło za krotkie. Min 6 znakow</span>
-</span><br />
+  </span><br />
 
-
-  <br />
-<!-- <span ng-message=""></span> -->
-  <span style="color:maroon; font-style:italic" id="verifyMessage" class="verifyMessage"></span><br />
+<span style="color:maroon; font-style:italic" id="verifyMessage" class="verifyMessage"></span><br />
 
   <p>
     <input type="submit" class="btn-default" style="width: 150px; margin-top: 10px;"
     ng-disabled="signForm.emailAddress.$pristine && signForm.emailAddress.$invalid || signForm.newPassword.$invalid || signForm.verifyPassword.$invalid || signForm.verifyPassword.$passwordconfirm">
   </p>
+
 </fieldset>
 </form>
 
 
-<!-- onkeyup="checkPass(); return false; -->
-<!-- <script>
-function checkPass()
-{
-    var pass1 = document.getElementById('pass1');
-    var pass2 = document.getElementById('pass2');
-    var message = document.getElementById('verifyMessage');
 
-    if(pass1.value != pass2.value) message.innerHTML="<span class='warning'>Wpisane hasła nie są takie same!</span>"
-    else message.innerHTML="";
-}
-</script> -->
 
 </div>
 </main>
