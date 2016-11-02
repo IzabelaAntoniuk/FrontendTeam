@@ -1,15 +1,14 @@
 body {
-<<<<<<< HEAD
   background-color: rgb(250, 240, 231);
   padding: 0;
   margin: 0;
 }
 
 header {
-    background-color: rgb(69, 39, 18);
+    background-color: rgb(162, 120, 91);
     height: 15%;
-    margin-left: 5%;
-    margin-right: 5%;
+  /*  margin-left: 5%;
+    margin-right: 5%;*/
     margin-bottom: 2px;
     color: white;
 }
@@ -22,20 +21,65 @@ header {
   font-style: oblique;
 }
 
+h2 {
+  padding: 2px;
+  font-family: "Dosis", Times, serif;
+  font-style: oblique;
+}
+
+fieldset {
+  padding: 15px;
+  font: sans-serif;
+}
+
+label {
+  width:25%;
+  text-align: left;
+  }
+
+.in {
+  width: 60%;
+  margin: 5px;
+}
+
+.in:focus {
+  margin: 5px;
+  border: 1px solid #555;
+}
+
+.warning {
+  background-color: rgb(242, 213, 213);
+  border-radius: 3px;
+  margin-top: 15px;
+  padding: 5px;
+}
+
 main {
-  background-color: rgb(34, 21, 1);
-  margin-left: 5%;
-  margin-right: 5%;
-  height: 300px;
+  background-color: rgb(59, 52, 40);
+  padding-top: 30px;;
+  padding-bottom: 30px;
+/*  margin-left: 5%;
+  margin-right: 5%;*/
+  height: 420px;
 }
 
 footer {
-  background-color: rgb(69, 39, 18);
-  margin-left: 5%;
-  margin-right: 5%;
+  background-color: rgb(162, 120, 91);
+/*  margin-left: 5%;
+  margin-right: 5%;*/
   margin-top: 2px;
   padding: 10px;
   color: white;
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 500px;
+  border: 1px solid black;
+  padding: 5px;
+  background-color: rgb(250, 240, 231);
+text-align: center;
 }
 
 img {
@@ -104,7 +148,7 @@ ul:first-child{
   backface-visibility: hidden;
   -moz-osx-font-smoothing: grayscale;
   position: relative;
-  background: #a8765d;
+  background:  rgb(59, 52, 40);
   -webkit-transition-property: color;
   transition-property: color;
   -webkit-transition-duration: 0.3s;
@@ -137,14 +181,3 @@ ul:first-child{
   -webkit-transform: scaleY(0);
   transform: scaleY(0);
 }
-=======
-  background-color: rgb(201, 149, 116);
-}
-
-.guzik {
-  background-color: red;
-  height: 100px;
-  width: 100px;
-}
-/* hehhe kjhkjh */
->>>>>>> origin/master
