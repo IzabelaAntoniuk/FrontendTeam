@@ -33,25 +33,44 @@
 <fieldset>
   <label for="emailAddress">Email:</label>
   <input type="email" class="in" name="emailAddress" ng-model="email" id="email" placeholder="Wpisz swoj adres email" required><br />
+  <span ng-messages="signForm.emailAddress.$error" ng-if="signForm.emailAddress.$dirty" class="error-messages slide-right">
+  <span ng-message="required" class="message slide-left">*Pole wymagane</span>
+  <span ng-message="email" class="message slide-left">*Zły format</span>
+  </span><br />
+
 
   <label for="newPassword">Hasło:</label>
   <input type="password" class="in" name="newPassword" id="pass1" ng-minlength="6" ng-model="newPassword" required><br />
+  <span ng-messages="signForm.newPassword.$error" ng-if="signForm.newPassword.$touched && signForm.newPassword.$dirty && signForm.newPassword.$invalid" class="error-messages slide-right">
+  <span ng-message="required" class="message slide-left">*Pole wymagane</span>
+  <span ng-message="minlength" class="message slide-left">*Hasło za krotkie. Min 6 znakow</span>
+</span><br />
 
+<!-- onkeyup="checkPass(); return false; -->
   <label for="verifyPassword">Powtorz hasło:</label>
-  <input type="password" class="in" name="verifyPassword" id="pass2" ng-minlength="6" ng-model="verifyPassword" required onkeyup="checkPass(); return false;">
+  <input type="password" class="in" name="verifyPassword" id="pass2" ng-minlength="6"
+  use-form-error="passwordconfirm"
+  use-error-expression="signUpCtrl.password && signUpCtrl.confirmPassword && signUpCtrl.password!=signUpCtrl.confirmPassword" ng-model="verifyPassword" required >
+  <span ng-messages="signForm.verifyPassword.$error" ng-if="signForm.verifyPassword.$touched && signForm.verifyPassword.$dirty && signForm.verifyPassword.$invalid" class="error-messages slide-right">
+  <span ng-message="required" class="message slide-left">*Pole wymagane</span>
+  <span ng-message="minlength" class="message slide-left">*Hasło za krotkie. Min 6 znakow</span>
+</span><br />
 
-  <br /><span style="color:maroon; font-style:italic" id="verifyMessage" class="verifyMessage"></span><br />
+
+  <br />
+<!-- <span ng-message=""></span> -->
+  <span style="color:maroon; font-style:italic" id="verifyMessage" class="verifyMessage"></span><br />
 
   <p>
     <input type="submit" class="btn-default" style="width: 150px; margin-top: 10px;"
-    ng-disabled="signForm.emailAddress.$pristine && signForm.emailAddress.$invalid || signForm.newPassword.$invalid || signForm.verifyPassword.$invalid">
+    ng-disabled="signForm.emailAddress.$pristine && signForm.emailAddress.$invalid || signForm.newPassword.$invalid || signForm.verifyPassword.$invalid || signForm.verifyPassword.$passwordconfirm">
   </p>
 </fieldset>
 </form>
 
-<!-- </div> -->
 
-<script>
+<!-- onkeyup="checkPass(); return false; -->
+<!-- <script>
 function checkPass()
 {
     var pass1 = document.getElementById('pass1');
@@ -61,7 +80,7 @@ function checkPass()
     if(pass1.value != pass2.value) message.innerHTML="<span class='warning'>Wpisane hasła nie są takie same!</span>"
     else message.innerHTML="";
 }
-</script>
+</script> -->
 
 </div>
 </main>
